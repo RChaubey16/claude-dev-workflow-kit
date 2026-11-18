@@ -3,7 +3,7 @@
 <!--
 Copy this file to the root of a new project as CLAUDE.md and fill it in.
 Only project-specific facts go here; the ticket workflow, git conventions,
-and general working rules come from ~/.claude/CLAUDE.md automatically.
+and general working rules come from the `ticket` skill.
 Delete any section that doesn't apply. Short and accurate beats complete.
 Leave it untracked (add to .git/info/exclude) unless the team wants it in the repo.
 -->
@@ -14,6 +14,8 @@ Leave it untracked (add to .git/info/exclude) unless the team wants it in the re
 - Current state notes: `<path>`
 
 ## Tickets and git
+
+For any ticket work (new ticket, resuming one, branching, committing, PRs), use the `ticket` skill and follow its rules.
 
 | Thing | Value |
 |---|---|

@@ -6,19 +6,19 @@ My ticket-folder workflow and git rules for Claude Code, packaged so they work i
 
 | File | Goes to | Purpose |
 |---|---|---|
-| `global/CLAUDE.md` | `~/.claude/CLAUDE.md` | Rules loaded in **every** project: ticket folders, git conventions, no Claude attribution, how we work. |
-| `skills/ticket/` | `~/.claude/skills/ticket/` | The `/ticket` command: start, resume, update, or list tickets. Includes the `<KEY>.md` template. |
-| `templates/project-CLAUDE.md` | `<project>/CLAUDE.md` | Skeleton for the project-specific part: tracker, prefix, base branch, commands, project rules. |
+| `skills/ticket/` | `~/.claude/skills/ticket/` | The `/ticket` skill: the ticket-folder workflow, git rules (branch/commit format, no Claude attribution, commit only when asked), and working rules. Includes the `<KEY>.md` template. |
+| `templates/project-CLAUDE.md` | `<project>/CLAUDE.md` | Skeleton for the project-specific part: tracker, prefix, base branch, commands, project rules. It tells Claude to use the `ticket` skill for ticket work. |
 
-The split matters: generic rules live once in `~/.claude`, so a new project's `CLAUDE.md` only holds what's specific to that project.
+The rules live in the skill, not a global `CLAUDE.md`, so nothing is loaded into sessions that don't involve tickets. The project's `CLAUDE.md` overrides the skill wherever they differ.
 
 ## Set up (once per machine)
 
 ```bash
-./install.sh
+git clone <this repo> ~/projects/claude-workflow-kit
+~/projects/claude-workflow-kit/install.sh
 ```
 
-This symlinks the files into `~/.claude`, so editing them here updates every project. Keep this folder in git (a private GitHub repo) to carry it to a new laptop.
+This symlinks the skill into `~/.claude/skills`, so it's available in every project and editing it here updates everywhere.
 
 ## New project
 
@@ -41,6 +41,8 @@ Fill in `CLAUDE.md` (or ask Claude: "fill in CLAUDE.md from this codebase, using
 
 Each `<KEY>.md` has a **Status** section at the top (always current) and a **History** section at the bottom (dated log), so anyone, including a fresh Claude session, can pick the ticket up.
 
+The git rules apply once the skill is loaded in a session. If you commit outside ticket work, start with `/ticket <KEY>` or put the commit rules in the project's `CLAUDE.md`.
+
 ## Changing the rules
 
-Edit the files here. If something only applies to one project, put it in that project's `CLAUDE.md` instead.
+Edit `skills/ticket/SKILL.md`. If something only applies to one project, put it in that project's `CLAUDE.md` instead.

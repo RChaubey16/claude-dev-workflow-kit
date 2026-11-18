@@ -20,7 +20,6 @@ link() {
   echo "Linked $dest -> $src"
 }
 
-link "$KIT/global/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
 link "$KIT/skills/ticket" "$CLAUDE_DIR/skills/ticket"
 
 echo "Done. New project: cp \"$KIT/templates/project-CLAUDE.md\" ./CLAUDE.md and fill it in."
