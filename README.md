@@ -1,4 +1,4 @@
-# Claude workflow kit
+# Claude Dev Workflow Kit
 
 My ticket-folder workflow and git rules for Claude Code, packaged so they work in every project.
 
@@ -14,8 +14,8 @@ The rules live in the skill, not a global `CLAUDE.md`, so nothing is loaded into
 ## Set up (once per machine)
 
 ```bash
-git clone <this repo> ~/projects/claude-workflow-kit
-~/projects/claude-workflow-kit/install.sh
+git clone <this repo> ~/projects/claude-dev-workflow-kit
+~/projects/claude-dev-workflow-kit/install.sh
 ```
 
 This symlinks the skill into `~/.claude/skills`, so it's available in every project and editing it here updates everywhere.
@@ -23,7 +23,7 @@ This symlinks the skill into `~/.claude/skills`, so it's available in every proj
 ## New project
 
 ```bash
-cp ~/projects/claude-workflow-kit/templates/project-CLAUDE.md ./CLAUDE.md
+cp ~/projects/claude-dev-workflow-kit/templates/project-CLAUDE.md ./CLAUDE.md
 echo "docs/" >> .git/info/exclude        # ticket notes stay private
 echo "CLAUDE.md" >> .git/info/exclude    # unless the team wants it committed
 ```
